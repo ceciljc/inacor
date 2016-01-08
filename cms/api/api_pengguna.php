@@ -25,43 +25,6 @@ $sIndexColumn = "user_id";
 /* DB table to use */
 $sTable = "user";
 
-/* Database connection information */
-$gaSql['user'] = $CONFIG->db_user;
-$gaSql['password'] =$CONFIG->db_pass;
-$gaSql['db'] = $CONFIG->database;
-$gaSql['server'] = $CONFIG->db_host;
-
-
-/* REMOVE THIS LINE (it just includes my SQL connection user/pass) */
-//include( $_SERVER['DOCUMENT_ROOT'] . "/datatables/mysql.php" );
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * If you just want to use the basic configuration for DataTables with PHP server-side, there is
- * no need to edit below this line
- */
-
-/*
- * Local functions
- */
-
-function fatal_error($sErrorMessage = '') {
-     header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error');
-     
-     die(mysql_error());
-}
-
-/*
- * MySQL connection
- */
-if (!$gaSql['link'] = mysql_pconnect($gaSql['server'], $gaSql['user'], $gaSql['password'])) {
-     fatal_error('Could not open connection to server');
-}
-
-if (!mysql_select_db($gaSql['db'], $gaSql['link'])) {
-     fatal_error('Could not select database ');
-}
-
 /*
  * Paging
  */
@@ -135,14 +98,14 @@ $sQuery = "
 		$sLimit
 		";
 
-$rResult = mysql_query($sQuery, $gaSql['link']) or fatal_error('MySQL Error: ' . mysql_errno());
+$rResult = $DB->query($sQuery);
 
 /* Data set length after filtering */
 $sQuery = "
 		SELECT FOUND_ROWS()
 	";
-$rResultFilterTotal = mysql_query($sQuery, $gaSql['link']) or fatal_error('MySQL Error: ' . mysql_errno());
-$aResultFilterTotal = mysql_fetch_array($rResultFilterTotal);
+$rResultFilterTotal = $DB->query($sQuery);
+$aResultFilterTotal = $DB->fetch_array($rResultFilterTotal);
 $iFilteredTotal = $aResultFilterTotal[0];
 
 /* Total data set length */
@@ -150,8 +113,8 @@ $sQuery = "
 		SELECT COUNT(`" . $sIndexColumn . "`)
 		FROM   $sTable
 	";
-$rResultTotal = mysql_query($sQuery, $gaSql['link']) or fatal_error('MySQL Error: ' . mysql_errno());
-$aResultTotal = mysql_fetch_array($rResultTotal);
+$rResultTotal = $DB->query($sQuery);
+$aResultTotal = $DB->fetch_array($rResultTotal);
 $iTotal = $aResultTotal[0];
 
 
@@ -165,7 +128,7 @@ $output = array(
     "aaData" => array()
 );
 
-while ($aRow = mysql_fetch_array($rResult)) {
+while ($aRow = $DB->fetch_array($rResult)) {
      $row = array();
      
      $user_id=$aRow['user_id'];
@@ -174,8 +137,8 @@ while ($aRow = mysql_fetch_array($rResult)) {
          $lokasi="";
        
 
-	$qry_level=mysql_query("select nama_level from level where id_level='$level'") or die(mysql_error());
-	if($rown=mysql_fetch_object($qry_level))
+	$qry_level=$DB->query("select nama_level from level where id_level='$level'") or die(mysql_error());
+	if($rown=$DB->fetch_object($qry_level))
 	{
 		$slevel=$rown->nama_level;
 	}

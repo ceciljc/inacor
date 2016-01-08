@@ -12,9 +12,7 @@
 require_once './config/application.php';
 $path = ltrim($_SERVER['REQUEST_URI'], '/');    // Trim leading slash(es)
 
-$path_compare = "gundar/inaCornerV2/cms/proses";
-
-$temp_path = explode($path_compare, $PROSES_REQUEST);
+$temp_path = explode($PROSES_REQUEST,$path);
 
 
 $elements = explode('/', $temp_path[1]);                // Split path on slashes
@@ -22,8 +20,8 @@ $data = array_filter($elements);
 //$UTILITY->show_data($data);
 if (count($data) == 0)                       // No path elements means home
      include "./index.php";
-else
-//untuk main menu
+else{
+   //untuk main menu
      switch ($data[1]) {             // Pop off first item and switch
           case 'pengguna':
                if ($data[2] == "hpengguna") {
@@ -152,4 +150,5 @@ else
                header('HTTP/1.1 404 Not Found');
                include "view/404.php";
      }
-?>
+}
+     ?>

@@ -1,5 +1,6 @@
 <?php
 ob_clean();
+
 //error_reporting("E_ALL");
 require_once __DIR__ .'/config.php';
 require_once __DIR__ .'/../utility/database/mysql_db.php';
@@ -39,7 +40,7 @@ $cek=$_SERVER['SCRIPT_NAME'];
 $temp=explode("/", $cek);
 $file=  end($temp);
  //if($status_index!="1"){
-     if ($_SESSION['user_name']=="") {
+     if ($_SESSION["user_name"]=="") {
           if( isSet($_COOKIE[$cookie_name])){ 
              //  echo "loginnn 11";
              include 'autologin.php';
