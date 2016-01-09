@@ -114,7 +114,7 @@ class modelDestination extends mysql_db {
 
           return $result;
      }
-
+	 
      public function readData($data) {
           $parameter = "";
           $count = 0;
@@ -125,7 +125,7 @@ class modelDestination extends mysql_db {
                     $paramater.=" AND $key='$value'";
                $count++;
           }
-          $query = "select * from destination $paramater";
+          $query = "select * from kategori_kln $paramater";
           //Execute query
           $result = $this->query($query);
         //  echo $result;

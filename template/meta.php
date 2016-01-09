@@ -1,7 +1,7 @@
 <?php 
 
 $base_url = 'http://localhost:8080/gundar/inaCornerV2/';
-include "D:\\xampp\\htdocs\\gundar\\inaCornerV2\\config\\config.php";
+include "C:\\xampp\\htdocs\\gundar\\inaCornerV2\\config\\config.php";
 open_connection();
 ?>
 <!DOCTYPE html>

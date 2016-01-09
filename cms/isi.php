@@ -22,52 +22,14 @@ if (count($data) == 0)                       // No path elements means home
 else
 //untuk main menu
      switch ($data[1]) {             // Pop off first item and switch
-           case 'Home':
+           case 'home':
+					include "view/home.php";
                /* Isi+
                 * Location 
                 * General info
                 * Traveller's Essential
                 */
-               switch ($data[2]) {
-                    case 1:
-                         $title_tab = "Profile KLN";
-                         $kategori = 1;
-                         include "./view/profile.php";
-                         break;
-                    case 2:
-                         $title_tab = "Team KLN";
-                         $kategori = 2;
-                         include "./view/profile.php";
-                         break;
-                    /* case 3:
-                         $title_tab = "Traveller's Esential";
-                         $kategori = 3;
-                         include "./view/about.php";
-                         break; */
-
-                    case "tambah":
-                         $title_tab = "Tambah About";
-                         include "./view/profile_management.php";
-                         break;
-                    case "edit":
-                         $id = $purifier->purify($data[3]);
-                         $status_edit = 1;
-                         if ($id == "") {
-                              $UTILITY->popup_message("Maaf data about tidak ada");
-                              $UTILITY->location_goto("content/profile/1");
-                         } else {
-                              $title_tab = "Edit About";
-                              include "./view/profile_management.php";
-                         }
-                         break;
-                    default:
-                         $title_tab = "Profile KLN";
-                         $kategori = 1;
-                         include "./view/profile_management.php";
-                         break;
-                         break;
-               }
-               break;
+               
 
                break;
 
@@ -184,12 +146,12 @@ else
                     case 1:
                          $title_tab = "Recommended";
                          $kategori = 1;
-                         include "./view/destination.php";
+                         include "./view/international_conference.php";
                          break;
                     case 2:
                          $title_tab = "Spectacular Indonesia Spot";
-                         $kategori = 2;
-                         include "./view/destination.php";
+                         $kategori = 1;
+                         include "./view/international_conference.php";
                          break;
                     
                        case 3:

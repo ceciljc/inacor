@@ -1,7 +1,7 @@
 <?php
 ob_clean();
 
-//error_reporting("E_ALL");
+error_reporting("E_ALL");
 require_once __DIR__ .'/config.php';
 require_once __DIR__ .'/../utility/database/mysql_db.php';
 require_once __DIR__ .'/../utility/utilityCode.php';

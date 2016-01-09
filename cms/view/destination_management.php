@@ -8,9 +8,12 @@
           ?>
           <?php
           $qWhere = array("id" => $id);
-          $data = $DATA->readData($qWhere, "destination");
-          //Hitung jmlh data
-          if ($data != "")
+		  $kondisi = array("parent" => 2);
+          $dataKategori = $DATA->readData($kondisi, "kategori_kln");
+		  
+		  // Hitung jmlh data
+          
+		  if ($data != "")
                $jData = count($data);
           else
                $jData = 0;
@@ -163,68 +166,51 @@
                                                             ?>
                                                        </div>
                                                        <div class="form-group">
-                                                            <label>Sub-Judul</label>
+                                                            <label>Periode</label>
                                                             <?php
                                                             if ($id != "")
-                                                                 echo("<input class=\"form-control\" id=\"sub_judul\" name=\"sub_judul\" type=\"text\" placeholder=\"Enter Sub Title\" value=\"$sub_judul\" />");
+                                                                 echo("<input class=\"form-control\" id=\"sub_judul\" name=\"sub_judul\" type=\"text\" placeholder=\"Enter Periode\" value=\"$sub_judul\" />");
                                                             else
-                                                                 echo("<input class=\"form-control\"  id=\"sub_judul\" name=\"sub_judul\" type=\"text\" placeholder=\"Enter Sub Title\" value=\"\" />");
+                                                                 echo("<input class=\"form-control\"  id=\"sub_judul\" name=\"sub_judul\" type=\"text\" placeholder=\"Enter Periode\" value=\"\" />");
                                                             ?>
                                                        </div>
-
-
-                                                       <div class="form-group">
-                                                            <label>Kategori</label>
-
+													   <div class="form-group">
+                                                            <label>Tahun</label>
                                                             <?php
-                                                            $qry = $DB->query("select id_kategori,kategori from kategori_destination");
-                                                            while ($row = $DB->fetch_object($qry)) {
-                                                                 $id_kategori = $row->id_kategori;
-                                                                 $kategori_fix = $row->kategori;
-                                                                 
-                                                                 if ($id!=''&&in_array($id_kategori, $kategori))
-                                                                      echo "<div class=\"checkbox\">"
-                                                                      . "<input type=\"checkbox\" name=\"kategori[]\" value=\"$id_kategori\" checked/> "
-                                                                      . "<label>&nbsp;$kategori_fix</label></div>";
-                                                                 else
-                                                                      echo "<div class=\"checkbox\">"
-                                                                      . "<input type=\"checkbox\" name=\"kategori[]\" value=\"$id_kategori\" > "
-                                                                      . "<label>&nbsp;    $kategori_fix</label></div>";
-                                                            }
+                                                            if ($id != "")
+                                                                 echo("<input class=\"form-control\" id=\"sub_judul\" name=\"sub_judul\" type=\"text\" placeholder=\"Enter Year\" value=\"$sub_judul\" />");
+                                                            else
+                                                                 echo("<input class=\"form-control\"  id=\"sub_judul\" name=\"sub_judul\" type=\"text\" placeholder=\"Enter Year\" value=\"\" />");
                                                             ?>
-
                                                        </div>
                                                        
-                                                       <div class="form-group">
-                                                            <label>Activity</label>
+                                                       <?php
+														
+														// $sql = "SELECT * FROM kategori_kln";
+														// $query = mysql_query($sql);
+														
+														    // while($row = mysql_fetch_assoc($query)) {
+															// echo $row['deskripsi'];
+															// }
+															
+														/* $sql = $DB->query("select deskripsi from kategori_kln where parent='2'");
+														while ($row = $DB->fetch_object($sql)) {
+															$tes[]= $row->deskripsi;
+														}
+														 */
 
-                                                            <?php
-                                                            $qry = $DB->query("select id_kategori,kategori from kategori_activity");
-                                                            while ($row = $DB->fetch_object($qry)) {
-                                                                 $id_kategori = $row->id_kategori;
-                                                                 $kategori_fix = $row->kategori;
-                                                        //         echo $id_kategori;
-                                                                 if ($id!=''&&in_array($id_kategori, $kategori_3))
-                                                                      echo "<div class=\"checkbox\">"
-                                                                      . "<input type=\"checkbox\" name=\"kategori_3[]\" value=\"$id_kategori\" checked/> "
-                                                                      . "<label>&nbsp;$kategori_fix</label></div>";
-                                                                 else
-                                                                      echo "<div class=\"checkbox\">"
-                                                                      . "<input type=\"checkbox\" name=\"kategori_3[]\" value=\"$id_kategori\" > "
-                                                                      . "<label>&nbsp;    $kategori_fix</label></div>";
-                                                            }
-                                                            ?>
-
-                                                       </div>
+														
+														?>
+                                                   
                                                        <div class="form-group">
-                                                            <label>Region</label>
+                                                            <label>Kategori<?php print_r($tes)?></label>
                                                             <select class="form-control" id="kategori_2" name="kategori_2" onchange="tampilkanProvinsi();">
                                                                  <option value="0" >None</option>
                                                                  <?php
-                                                                 $qry = $DB->query("select id_kategori,kategori from kategori_region");
+                                                                 $qry = $DB->query("select deskripsi from kategori_kln where parent='2'");
                                                                  while ($row = $DB->fetch_object($qry)) {
-                                                                      $id_kategori = $row->id_kategori;
-                                                                      $kategori_fix = $row->kategori;
+                                                                      $id_kategori = $row->id;
+                                                                      $kategori_fix = $row->deskripsi;
                                                                       if ($id_kategori == $kategori_2)
                                                                            echo "<option value=\"$id_kategori\" selected>$kategori_fix</option>";
                                                                       else
@@ -234,13 +220,7 @@
                                                             </select>
                                                        </div>
                                                        
-                                                       <div class="panel panel-default">
-                                                       <div class="breadcrumb">
-                                                            <h4 class="panel-title">
-                                                                 <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" class=""> 
-                                                                      <label>#Wilayah (Optional)</label></a>
-                                                            </h4>
-                                                       </div>
+                                                      
                                                        <div class="panel-collapse collapse in" id="collapseOne" style="height: auto;">
                                                             <div class="panel-body">
                                                                  <div id="provinsi_isi">
@@ -293,80 +273,6 @@
                                                        </div>
                                                        </div>
 
-
-
-
-
-
-                                                       <div class="form-group">
-                                                            <label>Waktu</label>
-
-                                                            <script>
-                                                                 $(function() {
-                                                                      $("#waktu").datetimepicker({
-                                                                           format: 'd M y H:i:s ',
-                                                                           
-                                formatTime:'H:i',
-	formatDate:'d.m.Y',
-		defaultTime:'10:00'
-                                                                      });
-                                                                 });
-                                                            </script>    
-
-                                                            <?php
-                                                            if ($id != "")
-                                                                 echo("<input class=\"form-control\" id=\"waktu\" name=\"waktu\" type=\"text\" value=\"$waktu\" placeholder=\"Click to open calender\" readonly/>");
-                                                            else
-                                                                 echo("<input class=\"form-control\" id=\"waktu\" name=\"waktu\" type=\"text\" value=\"$waktu\" placeholder=\"Click to open calender\" readonly/>");
-                                                            ?>
-                                                       </div>
-
-                                                       <div class="form-group">
-                                                            <label>Image Utama</label>
-                                                            <?php
-                                                            if ($id != "") {
-                                                                 if ($image == "") {
-                                                                      echo"
-			<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"4194304\">
-			<input type=\"file\" id=\"image'\" name=\"image\" size=\"75%\" value=\"\">
-			<input type=\"hidden\" name=\"submitted\" value=\"TRUE\" />
-			";
-                                                                 } else {
-                                                                      $t = 0;
-                                                                      echo"<br/>
-			<img src=\"$url_img/img/$image\" style=\"border: 1px solid #000; max-width:500px; max-height:500px;\" border=\"0\" alt=\"Tinjau\"/>
-                                        <input type=\"hidden\" value=\"$image\" name=\"filesave_image\"/>
-			<input type=\"submit\"  name=\"ganti1\" class=\"btn btn-warning\" value=\"Ganti Foto\">
-			";
-                                                                 }
-                                                            } else {
-                                                                 echo"
-        <input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"4194304\">
-        <input type=\"file\" id=\"image'\" name=\"image\" size=\"75%\" value=\"\">
-        <input type=\"hidden\" name=\"submitted\" value=\"TRUE\" />
-		 ";
-                                                            }
-                                                            ?>
-                                                       </div>
-
-
-
-                                                       <div class="form-group">
-                                                            <label>Short Content</label>
-                                                            <?php
-                                                            include_once "library/ckeditor/ckeditor.php";
-                                                            $CKEditor = new CKEditor();
-                                                            $CKEditor->basePath = "$url_rewrite/library/ckeditor/";
-                                                            $CKEditor->config['filebrowserBrowseUrl'] = "$url_rewrite/library/ckeditor/kcfinder/browse.php?type-files";
-                                                            $CKEditor->config['filebrowserImageBrowseUrl'] = "$url_rewrite/library/ckeditor/kcfinder/browse.php?type=images";
-                                                            $CKEditor->config['filebrowserFlashBrowseUrl'] = "$url_rewrite/library/ckeditor/kcfinder/browse.php?type=flash";
-                                                            $CKEditor->config['filebrowserUploadUrl'] = "$url_rewrite/library/ckeditor/kcfinder/upload.php?type=files";
-                                                            $CKEditor->config['filebrowserImageUploadUrl'] = "$url_rewrite/library/ckeditor/kcfinder/upload.php?type=images";
-                                                            $CKEditor->config['filebrowserFlashUploadUrl'] = "$url_rewrite/library/ckeditor/kcfinder/upload.php?type=flash";
-                                                            $CKEditor->editor("short_content", $short_content);
-                                                            ?>
-                                                       </div>
-
                                                        <div class="form-group">
                                                             <label>Content</label>
                                                             <?php
@@ -396,8 +302,8 @@
 
 
                                                   </form>
-
-
+													
+	
 
                                              </div>
 
