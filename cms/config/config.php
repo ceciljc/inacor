@@ -35,10 +35,10 @@ $REQUEST="gundar/inaCornerV2/cms/content";
 $PROSES_REQUEST="gundar/inaCornerV2/cms/proses";
 
 $domain = "localhost";
-$path="/srv/www/htdocs/gundar/inaCornerV2/cms/";
+$path="D:\\xampp\\htdocs\\gundar\\inaCornerV2\\cms\\";
 
-$path_upload="/srv/www/htdocs/gundar/inaCornerV2/img/";
-$path_upload_album="/srv/www/htdocs/gundar/inaCornerV2/album";
+$path_upload="D:\\xampp\\htdocs\\gundar\\inaCornerV2\\img\\";
+$path_upload_album="D:\\xampp\\htdocs\\gundar\\inaCornerV2\\album";
 
 class config {
 

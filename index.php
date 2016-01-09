@@ -1,5 +1,5 @@
-<?php include('template/meta.php'); 
-echo('test');
+<?php 
+include('template/meta.php'); 
 ?>
 
 <body>
