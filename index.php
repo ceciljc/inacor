@@ -1,4 +1,6 @@
-<?php include('template/meta.php'); ?>
+<?php 
+include('template/meta.php'); 
+?>
 
 <body>
 <?php include('template/header.php'); ?>

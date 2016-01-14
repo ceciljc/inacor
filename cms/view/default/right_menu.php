@@ -46,6 +46,7 @@
                     <ul class="nav" id="side-menu">
                         
                         <li>
+<<<<<<< HEAD
                             <a href="<?=$url_rewrite?>content/home"><i class="fa fa-home  fa-fw"></i> Home</a>
                         </li>
                       
@@ -63,6 +64,46 @@
                              
                         </li>
                         
+=======
+                            <a href="<?=$url_rewrite?>content/home"><i class="fa fa-home  fa-fw"></i> Home </a>			
+                        </li>
+                        
+                        <li>
+                             <a href="<?=$url_rewrite?>"><i class="fa fa-legal fa-fw"></i> Mobility<span class="fa arrow"></span></a>
+                             
+                             <ul class="nav nav-second-level">
+                                  <li><a href="<?=$url_rewrite?>content/about/1"><i class="fa fa-institution  fa-fw"></i> Inbound<span class="fa arrow"></span></a>
+								   <ul class="nav nav-third-level">
+									 <li><a href="<?=$url_rewrite?>content/internship_inbound/1"><i class="fa fa-group fa-fw"></i> Internship</a></li>
+									 <li><a href="<?=$url_rewrite?>content/destination/2"><i class="fa fa-send fa-fw"></i> Visiting Lecturer & Research</a></li>
+									 <li><a href="<?=$url_rewrite?>content/destination/3"><i class="fa fa-file fa-fw"></i> Extend Visa Form</a></li>
+									 
+								   </ul>
+								  </li>
+                                  <li><a href="<?=$url_rewrite?>content/about/2"><i class="fa fa-globe fa-fw"></i> Outbound<span class="fa arrow"></span></a>
+								   <ul class="nav nav-third-level">
+									 <li><a href="<?=$url_rewrite?>content/destination/1"><i class="fa fa-group fa-fw"></i> Internship</a></li>
+									 <li><a href="<?=$url_rewrite?>content/destination/2"><i class="fa fa-send fa-fw"></i> Visiting Lecturer & Research</a></li>
+									 <li><a href="<?=$url_rewrite?>content/destination/3"><i class="fa fa-file fa-fw"></i> Study-Credit Earning</a></li>
+								   </ul>
+								  </li>
+                             </ul>
+                        </li>
+                        <li>
+                             <a href="<?=$url_rewrite?>"><i class="fa fa-road fa-fw"></i> Joint Activities<span class="fa arrow"></span></a>
+                             
+                             <ul class="nav nav-second-level">
+                                  <li><a href="<?=$url_rewrite?>content/destination/1"><i class="fa fa-file fa-fw"></i> International Conference</a></li>
+                                  <li><a href="<?=$url_rewrite?>content/destination/2"><i class="fa fa-file fa-fw"></i> Workshop</a></li>
+                                  <li><a href="<?=$url_rewrite?>content/destination/3"><i class="fa fa-group fa-fw"></i> Joint Publication</a></li>
+								  <li><a href="<?=$url_rewrite?>content/destination/4"><i class="fa fa-group fa-fw"></i> Joint Research</a></li>
+                             </ul>
+                        </li>
+                       
+                        
+                       
+                      
+>>>>>>> f619dbaa81051a285bb1cefba9f9bca0f18b54b5
                         <?php
                         if($_SESSION['level']==1){
                          ?>    

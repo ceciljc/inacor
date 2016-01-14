@@ -2,7 +2,7 @@
 function open_connection(){ 
  $db_host="localhost"; 
  $db_user="root";
- $db_pass="new-password";
+ $db_pass="";
  $link=mysql_connect($db_host,$db_user,$db_pass)  
  or die ("inacorner"); 
  mysql_select_db("inacorner");

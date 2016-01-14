@@ -33,8 +33,8 @@
                         <div class="panel-body">
                     
                             <div class="well">
-                                <h4>Selamat datang di CMS Indonesia Corner</h4>
-                                <p>Provided by : Cuncun Gunadarma</p>                               
+                                <h4>Selamat datang di CMS KLN</h4>
+                                <p>Provided by : Lulu dan Jessi </p>                               
                             </div>
                         </div>
                         <!-- /.panel-body -->

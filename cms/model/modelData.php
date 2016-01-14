@@ -179,7 +179,7 @@ class modelData extends mysql_db {
                $count++;
           }
           $query = "select * from $tableName $paramater";
-          //Execute query
+		  //Execute query
           $result = $this->query($query);
         //  echo $result;
           //Wrap Output Query

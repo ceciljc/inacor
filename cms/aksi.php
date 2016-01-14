@@ -143,6 +143,19 @@ else{
                include "./core/about/proses_about.php";
 
                break;     
+			   
+			 case 'profile':
+               if ($data[2] == "hdata") {
+                    $hapusdata = $purifier->purify($data[3]);
+                    $hapusdatakategori = $purifier->purify($data[4]);
+               } else if ($data[2] == "publish") {
+                    $publishdata = $purifier->purify($data[3]);
+                    $publishvalue = $purifier->purify($data[4]);
+                    $publishkategori = $purifier->purify($data[5]);
+               }
+               include "./core/profile/proses_profile.php";
+
+               break;     
                
              case 'album':
                if ($data[2] == "hdata") {
