@@ -9,7 +9,7 @@
 #Andreas Hadiyono (andre.hadiyono@gmail.com)
 #Gunadarma University
 include 'config/application.php';
-  if ($_SESSION['user_name']!=""){
+  if ($_SESSION["user_name"]!=""){
         $UTILITY->location_goto("content/home");
   }else include "view/login.php";
 ?>

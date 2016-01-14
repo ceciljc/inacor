@@ -78,6 +78,12 @@ function confirm_delete(go_url)
 
 
 }
-     </script>
+$('form').keyup(function(e) {
+  return e.which !== 13  
+});
+
+</script>
           <link href="<?=$url_rewrite?>css/jquery.datetimepicker.css" rel="stylesheet">
           <script src="<?=$url_rewrite?>js/jquery.datetimepicker.js"></script>
+          
+          

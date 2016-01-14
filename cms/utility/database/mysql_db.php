@@ -73,7 +73,7 @@ class mysql_db extends config {
 
      public function fetch_array($data) {
           $this->result = $data;
-          return mysqil_fetch_array($this->result);
+          return mysqli_fetch_array($this->result);
      }
 
      public function fetch_field($data) {

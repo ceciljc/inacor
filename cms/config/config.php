@@ -28,25 +28,25 @@ $algoritma = "rijndael-256";
 $mode = "cfb";
 $secretkey = "menpora1234";
 $TITLE="CMS INA CORNER";
-$url_rewrite = "http://localhost/gundar/inaCornerV2/cms/";
-$url_img = "http://localhost/gundar/inaCornerV2";
+$url_rewrite = "http://localhost:8080/gundar/inaCornerV2/cms/";
+$url_img = "http://localhost:8080/gundar/inaCornerV2";
 
 $REQUEST="gundar/inaCornerV2/cms/content";
 $PROSES_REQUEST="gundar/inaCornerV2/cms/proses";
 
 $domain = "localhost";
-$path="/srv/www/htdocs/gundar/inaCornerV2/cms/";
+$path="D:\\xampp\\htdocs\\gundar\\inaCornerV2\\cms\\";
 
-$path_upload="/srv/www/htdocs/gundar/inaCornerV2/img/";
-$path_upload_album="/srv/www/htdocs/gundar/inaCornerV2/album";
+$path_upload="D:\\xampp\\htdocs\\gundar\\inaCornerV2\\img\\";
+$path_upload_album="D:\\xampp\\htdocs\\gundar\\inaCornerV2\\album";
 
 class config {
 
      public $db_host = "localhost";
      public $db_user = "root";
-     public $db_pass = "new-password";
+     public $db_pass = "";
      public $database = "inacorner";
-     public $url_rewrite_class = "http://localhost/gundar/inaCornerV2/cms";
+     public $url_rewrite_class = "http://localhost:8080/gundar/inaCornerV2/cms";
      public $session_expired_time = ""; //in second
      public $hashing_number = "d4t4b4s3_m3np0r41235";
      public $debug = 1;

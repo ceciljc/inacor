@@ -1,5 +1,5 @@
-<?php $base_url = 'http://localhost/gundar/inaCornerV2/';
-include "/srv/www/htdocs/gundar/inaCornerV2/config/config.php";
+<?php $base_url = 'http://localhost:8080/gundar/inaCornerV2/';
+include "D:\\xampp\\htdocs\\gundar\\inaCornerV2\\config\\config.php";
 open_connection();
 ?>
 <!DOCTYPE html>

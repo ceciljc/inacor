@@ -25,6 +25,82 @@ else
           case 'home':
                include "view/home.php";
                break;
+			   
+		   case 'inbound':
+               /* Isi:
+                * Recommend ---> sama dengan berita
+                * Spectacular Indonesia Spot
+                * Region --> pulau di Indonesia (Sumatera, Jawa, Kalimantan, Sulawesi, Maluku, NTT, Bali, Papua)
+                * Cities ---> sama dengan berita
+                */
+                switch ($data[2]) {
+                    case 1:
+                         $title_tab = "Mobility inbound";
+                         $kategori = 1;
+                         include "./view/inbound.php";
+                         break;
+                    
+                    case "tambah":
+                         $title_tab = "Add Information";
+                         include "./view/inbound_management.php";
+                         break;
+                    case "edit":
+                         $id = $purifier->purify($data[3]);
+                         $status_edit = 1;
+                         if ($id == "") {
+                              $UTILITY->popup_message("Maaf data tidak ada");
+                              $UTILITY->location_goto("content/inbound/1");
+                         } else {
+                              $title_tab = "Edit";
+                              include "./view/inbound_management.php";
+                         }
+                         break;
+                    default:
+                         $title_tab = "Mobility Inbound";
+                         $kategori = 1;
+                         include "./view/inbound_management.php";
+                         break;
+                         break;
+               }
+               break;
+			   
+		  case 'kln':
+               /* Isi:
+                * Recommend ---> sama dengan berita
+                * Spectacular Indonesia Spot
+                * Region --> pulau di Indonesia (Sumatera, Jawa, Kalimantan, Sulawesi, Maluku, NTT, Bali, Papua)
+                * Cities ---> sama dengan berita
+                */
+                switch ($data[2]) {
+                    case 1:
+                         $title_tab = "Joint Activities";
+                         $kategori = 1;
+                         include "./view/kln.php";
+                         break;
+                    
+                    case "tambah":
+                         $title_tab = "Add Information";
+                         include "./view/kln_management.php";
+                         break;
+                    case "edit":
+                         $id = $purifier->purify($data[3]);
+                         $status_edit = 1;
+                         if ($id == "") {
+                              $UTILITY->popup_message("Maaf data tidak ada");
+                              $UTILITY->location_goto("content/kln/1");
+                         } else {
+                              $title_tab = "Edit";
+                              include "./view/kln_management.php";
+                         }
+                         break;
+                    default:
+                         $title_tab = "Joint Activities";
+                         $kategori = 1;
+                         include "./view/kln_management.php";
+                         break;
+                         break;
+               }
+               break;
 
           case 'today':
                if ($data[2] == "tambah") {

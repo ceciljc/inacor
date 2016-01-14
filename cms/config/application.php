@@ -1,5 +1,6 @@
 <?php
 ob_clean();
+
 //error_reporting("E_ALL");
 require_once __DIR__ .'/config.php';
 require_once __DIR__ .'/../utility/database/mysql_db.php';
@@ -11,6 +12,9 @@ require_once __DIR__ . '/../model/modelData.php';
 require_once __DIR__ . '/../model/modelAlbum.php';
 require_once __DIR__ . '/../model/modelFoto.php';
 require_once __DIR__ . '/../model/modelDestination.php';
+require_once __DIR__ . '/../model/modelInbound.php';
+require_once __DIR__ . '/../model/modelKln.php';
+
 //Akhir Model
 
 require_once __DIR__ ."/../library/security/HTMLPurifier.auto.php";
@@ -29,6 +33,8 @@ $DATA=new modelData();
 $ALBUM=new modelAlbum();
 $FOTO=new modelFoto();
 $DESTINATION=new modelDestination();
+$INBOUND=new modelInbound();
+$KLN=new modelKln();
 //$data= $_SESSION['cookies']; 
 //setcookie($cookie_name, $data, time() + $cookie_time);
 
@@ -39,7 +45,7 @@ $cek=$_SERVER['SCRIPT_NAME'];
 $temp=explode("/", $cek);
 $file=  end($temp);
  //if($status_index!="1"){
-     if ($_SESSION['user_name']=="") {
+     if ($_SESSION["user_name"]=="") {
           if( isSet($_COOKIE[$cookie_name])){ 
              //  echo "loginnn 11";
              include 'autologin.php';
